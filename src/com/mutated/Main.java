@@ -1,6 +1,6 @@
-package com.company;
+package com.mutated;
 
-import com.company.Controller.TriggerController;
+import com.mutated.Controller.TriggerController;
 
 import java.util.Scanner;
 
