@@ -1,7 +1,5 @@
 package com.company;
 
-import com.company.Controller.TriggerController;
-
 import java.util.Scanner;
 
 class Main {
