@@ -14,8 +14,8 @@ class SentryGunApp {
         runtime.exec("gpio write 4 1");
         Thread.sleep(20000);
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Exception caught: " + e.getMessage());
         }
 
 
