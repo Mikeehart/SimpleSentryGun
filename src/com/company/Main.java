@@ -3,7 +3,7 @@ package com.company;
 import java.io.IOException;
 import java.util.Scanner;
 
-class SentryGunApp {
+class Main {
 
     public static void main(String[] args) {
         System.out.println("Sentry online");
