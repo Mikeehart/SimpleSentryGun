@@ -11,11 +11,11 @@ class Main {
         Runtime runtime = Runtime.getRuntime();
         TriggerController trigger = new TriggerController();
 
-        System.out.println("Enter f to fire");
-        System.out.println("Enter c to cease fire");
-        System.out.println("Enter q to quit");
-        Scanner input = new Scanner(System.in);
-        String userInput = input.nextLine();
+        System.out.println("Enter 1 to fire");
+        System.out.println("Enter 2 to cease fire");
+        System.out.println("Enter 3 to quit");
+        Scanner scanner = new Scanner(System.in);
+        int userInput = scanner.nextInt();
 
 
 
@@ -24,15 +24,14 @@ class Main {
         runtime.exec("gpio mode 4 out");
         runtime.exec("gpio mode 1 out");
 
-            while(userInput != "q")
-            {
-                if(userInput == "f"){
-                    trigger.fire(runtime);
-                }
-                else if(userInput == "c"){
-                    trigger.ceaseFire(runtime);
-                }
+        while(userInput != 3) {
+            if (userInput == 1) {
+                System.out.println(trigger.fire(runtime));
+            } else if (userInput == 2) {
+                System.out.println(trigger.ceaseFire(runtime));
             }
+            userInput = scanner.nextInt();
+        }
 
         } catch (Exception e) {
             System.out.println("Exception caught: " + e.getMessage());
