@@ -11,9 +11,8 @@ class Main {
         Runtime runtime = Runtime.getRuntime();
         TriggerController trigger = new TriggerController();
 
-        System.out.println("Enter 1 to fire");
-        System.out.println("Enter 2 to cease fire");
-        System.out.println("Enter 3 to quit");
+        System.out.println("Enter 1 to toggle trigger on/off");
+        System.out.println("Enter 2 to quit");
         Scanner scanner = new Scanner(System.in);
         int userInput = scanner.nextInt();
 
@@ -26,9 +25,7 @@ class Main {
 
         while(userInput != 3) {
             if (userInput == 1) {
-                System.out.println(trigger.fire(runtime));
-            } else if (userInput == 2) {
-                System.out.println(trigger.ceaseFire(runtime));
+                trigger.toggle(runtime);
             }
             userInput = scanner.nextInt();
         }
