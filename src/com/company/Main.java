@@ -13,6 +13,7 @@ class Main {
         runtime.exec("gpio mode 4 out");
         runtime.exec("gpio write 4 1");
         Thread.sleep(20000);
+        runtime.exec("gpio write 4 0");
 
         } catch (Exception e) {
             System.out.println("Exception caught: " + e.getMessage());
