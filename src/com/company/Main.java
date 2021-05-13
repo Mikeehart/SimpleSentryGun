@@ -11,11 +11,12 @@ class Main {
 
         Runtime runtime = Runtime.getRuntime();
         runtime.exec("gpio mode 4 out");
+        runtime.exec("gpio mode 1 out");
         runtime.exec("gpio write 4 1");
         Thread.sleep(3000);
-        runtime.exec("gpio write 0 1");
+        runtime.exec("gpio write 1 1");
         Thread.sleep(6000);
-        runtime.exec("gpio write 0 0");
+        runtime.exec("gpio write 1 0");
         Thread.sleep(2000);
         runtime.exec("gpio write 4 0");
 
