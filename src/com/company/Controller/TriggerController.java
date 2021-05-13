@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Controller;
 
 import java.io.IOException;
 
