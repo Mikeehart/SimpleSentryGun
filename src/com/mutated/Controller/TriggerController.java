@@ -40,31 +40,27 @@ public class TriggerController {
     //Because the sentry gun has a primer trigger that MUST be activated prior
     //to activating the firing trigger, and released in the reverse order,
     //the toggle trigger functions will only be called here in a controlled order.
-    private boolean fire(Runtime runtime) throws IOException, InterruptedException {
+    private int fire(Runtime runtime) throws IOException, InterruptedException {
 
-        System.out.println(toggleTrigger(runtime));
-        Thread.sleep(3000);
         System.out.println(togglePrimer(runtime));
-
-
+        Thread.sleep(3000);
+        System.out.println(toggleTrigger(runtime));
         isFiring = true;
-
-        return isFiring;
+        return 1;
     }
 
-    private boolean ceaseFire(Runtime runtime) throws IOException, InterruptedException {
+    private int ceaseFire(Runtime runtime) throws IOException, InterruptedException {
 
         System.out.println(toggleTrigger(runtime));
         Thread.sleep(3000);
         System.out.println(togglePrimer(runtime));
         isFiring = false;
-
-        return isFiring;
+        return 0;
     }
 
-    public boolean toggle(Runtime runtime) throws IOException, InterruptedException {
+    public int toggle(Runtime runtime) throws IOException, InterruptedException {
 
-        if(isFiring)
+        if(!isFiring)
             return fire(runtime);
         else
             return ceaseFire(runtime);
