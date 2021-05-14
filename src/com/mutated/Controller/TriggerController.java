@@ -42,9 +42,11 @@ public class TriggerController {
     //the toggle trigger functions will only be called here in a controlled order.
     private boolean fire(Runtime runtime) throws IOException, InterruptedException {
 
-        System.out.println(togglePrimer(runtime));
-        Thread.sleep(3000);
         System.out.println(toggleTrigger(runtime));
+        Thread.sleep(3000);
+        System.out.println(togglePrimer(runtime));
+
+
         isFiring = true;
 
         return isFiring;
@@ -53,7 +55,7 @@ public class TriggerController {
     private boolean ceaseFire(Runtime runtime) throws IOException, InterruptedException {
 
         System.out.println(toggleTrigger(runtime));
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         System.out.println(togglePrimer(runtime));
         isFiring = false;
 

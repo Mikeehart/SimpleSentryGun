@@ -23,7 +23,7 @@ class Main {
         runtime.exec("gpio mode 4 out");
         runtime.exec("gpio mode 1 out");
 
-        while(userInput != 3) {
+        while(userInput != 2) {
             if (userInput == 1) {
                 trigger.toggle(runtime);
             }
