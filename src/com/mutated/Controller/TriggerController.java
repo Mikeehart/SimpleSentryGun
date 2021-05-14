@@ -43,7 +43,7 @@ public class TriggerController {
     private int fire(Runtime runtime) throws IOException, InterruptedException {
 
         System.out.println(togglePrimer(runtime));
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         System.out.println(toggleTrigger(runtime));
         isFiring = true;
         return 1;
