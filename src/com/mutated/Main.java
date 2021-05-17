@@ -2,6 +2,7 @@ package com.mutated;
 
 import com.mutated.Controller.TriggerController;
 
+import java.io.InputStream;
 import java.util.Scanner;
 
 class Main {
@@ -10,7 +11,8 @@ class Main {
         System.out.println("Sentry online");
         Runtime runtime = Runtime.getRuntime();
         TriggerController trigger = new TriggerController();
-        String pir;
+        InputStream input;
+        String result;
 
         Scanner scanner = new Scanner(System.in);
         int userInput;
@@ -48,8 +50,10 @@ class Main {
 
                    while (true){
 
-                       pir = String.valueOf(runtime.exec("gpio read 2"));
-                       System.out.println(pir);
+                       input = runtime.exec("gpio read 2").getInputStream();
+                       Scanner s = new Scanner(input).useDelimiter("\\A");
+                       result = s.hasNext() ? s.next() : null;
+                       System.out.println(result);
                        Thread.sleep(5000);
                    }
                }
