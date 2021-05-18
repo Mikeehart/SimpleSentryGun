@@ -49,15 +49,14 @@ class Main {
                    System.out.println("Enter 1 for main menu");
                    userInput = scanner.nextInt();
 
-                   while (userInput != 1){
+                   while (true){
 
                        //call pir event listener function here
                        input = runtime.exec("gpio read 2").getInputStream();
                        Scanner s = new Scanner(input).useDelimiter("\\A");
                        result = s.hasNext() ? s.next() : null;
 
-                       System.out.println(runtime.exec("gpio read 2"));
-                       System.out.println("this is the result" + result);
+                       System.out.println("this is the result: " + result);
 
 
                        userInput = scanner.nextInt();
