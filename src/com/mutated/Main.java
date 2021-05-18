@@ -14,7 +14,7 @@ class Main {
 
         Scanner scanner = new Scanner(System.in);
         InputStream input;
-        int toggleCounter = 0;
+        int sensorTripCounter = 0;
         String result = "0";
         String newResult = "0";
 
@@ -49,8 +49,7 @@ class Main {
                }
                else if(userInput == 2) {
                    System.out.println("SENTRY MODE");
-                   System.out.println("Enter ctrl-c to quit");
-
+                   System.out.println("Press ctrl-c to quit");
 
                    while (true){
 
@@ -60,10 +59,10 @@ class Main {
                        result = s.hasNext() ? s.next() : "0";
 
                        if(!newResult.equals(result)){
-                           if(toggleCounter > 0)
+                           if(sensorTripCounter > 0)
                            trigger.toggle(runtime);
 
-                           ++toggleCounter;
+                           ++sensorTripCounter;
                        }
                        Thread.sleep(500);
                        newResult = result;
