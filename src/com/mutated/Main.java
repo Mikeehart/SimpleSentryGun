@@ -47,7 +47,8 @@ class Main {
                }
                else if(userInput == 2) {
                    System.out.println("SENTRY MODE");
-                   System.out.println("Enter 1 for main menu");
+                   System.out.println("Enter ctrl-c to quit");
+                   Thread.sleep(1000);
 
                    while (true){
 
@@ -56,7 +57,6 @@ class Main {
                        Scanner s = new Scanner(input).useDelimiter("\\A");
                        result = s.hasNext() ? s.next() : "";
 
-                       System.out.println("this is the result: " + result);
                        if(!result.equals(newResult)){
                            trigger.toggle(runtime);
                        }
