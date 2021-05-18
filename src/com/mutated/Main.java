@@ -58,10 +58,10 @@ class Main {
                        //call pir event listener function here
 
                        if(!newResult.equals(result)){
-                           if(toggleCounter > 0)
+                           //if(toggleCounter > 0)
                            trigger.toggle(runtime);
 
-                           ++toggleCounter;
+                           //++toggleCounter;
                        }
                        result = s.hasNext() ? s.next() : "0";
                        Thread.sleep(500);
