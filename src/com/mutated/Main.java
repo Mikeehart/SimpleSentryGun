@@ -56,10 +56,10 @@ class Main {
                        Scanner s = new Scanner(input).useDelimiter("\\A");
                        result = s.hasNext() ? s.next() : "";
 
-                       if(result.equals("1") && !trigger.getIsFiring()){
+                       if(result.equals("1")){
                            trigger.fire(runtime);
                        }
-                       else if(result.equals("0") && trigger.getIsFiring()){
+                       else if(result.equals("0")){
                            trigger.ceaseFire(runtime);
                        }
                        Thread.sleep(500);
