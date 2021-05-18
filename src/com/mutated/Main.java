@@ -47,7 +47,6 @@ class Main {
                else if(userInput == 2) {
                    System.out.println("SENTRY MODE");
                    System.out.println("Enter 1 for main menu");
-                   userInput = scanner.nextInt();
 
                    while (true){
 
@@ -57,9 +56,8 @@ class Main {
                        result = s.hasNext() ? s.next() : null;
 
                        System.out.println("this is the result: " + result);
+                       Thread.sleep(500);
 
-
-                       userInput = scanner.nextInt();
                    }
                }
            }
