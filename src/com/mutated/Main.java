@@ -56,7 +56,7 @@ class Main {
                        input = runtime.exec("gpio read 2").getInputStream();
                        Scanner s = new Scanner(input).useDelimiter("\\A");
 
-                       if(!result.equals(newResult)){
+                       if(result.equals(newResult)){
                            trigger.toggle(runtime);
                        }
                        result = s.hasNext() ? s.next() : "0";
