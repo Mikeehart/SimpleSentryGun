@@ -7,6 +7,7 @@ public class TriggerController {
     private int primerState = 0;
     private int triggerState = 0;
     private boolean isFiring = false;
+    public boolean getIsFiring(){return isFiring;}
 
     //function to switch first (primer) trigger relay
     private String togglePrimer(Runtime runtime) throws IOException {
