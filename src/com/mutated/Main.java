@@ -60,10 +60,10 @@ class Main {
                        result = s.hasNext() ? s.next() : "0";
 
                        if(!newResult.equals(result)){
-                           //if(toggleCounter > 0)
+                           if(toggleCounter > 0)
                            trigger.toggle(runtime);
 
-                           //++toggleCounter;
+                           ++toggleCounter;
                        }
                        Thread.sleep(500);
                        newResult = result;
