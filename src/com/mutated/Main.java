@@ -2,7 +2,6 @@ package com.mutated;
 
 import com.mutated.Controller.TriggerController;
 
-import java.io.InputStream;
 import java.util.Scanner;
 
 class Main {
@@ -11,8 +10,6 @@ class Main {
         System.out.println("Sentry online");
         Runtime runtime = Runtime.getRuntime();
         TriggerController trigger = new TriggerController();
-        InputStream input;
-        String result;
 
         Scanner scanner = new Scanner(System.in);
         int userInput;
@@ -45,16 +42,16 @@ class Main {
                }
                else if(userInput == 2) {
                    System.out.println("SENTRY MODE");
-                   System.out.println("Enter ctrl-c to quit");
+                   System.out.println("Enter 1 for main menu");
                    userInput = scanner.nextInt();
 
-                   while (true){
+                   while (userInput != 1){
 
-                       input = runtime.exec("gpio read 2").getInputStream();
-                       Scanner s = new Scanner(input).useDelimiter("\\A");
-                       result = s.hasNext() ? s.next() : null;
-                       System.out.println(result);
-                       Thread.sleep(5000);
+                       //call pir event listener function here
+                        runtime.exec("gpio readall");
+                       System.out.println("cool atleast the while loop works");
+
+                       userInput = scanner.nextInt();
                    }
                }
            }
