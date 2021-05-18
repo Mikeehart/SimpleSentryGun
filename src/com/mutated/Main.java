@@ -14,7 +14,7 @@ class Main {
 
         Scanner scanner = new Scanner(System.in);
         InputStream input;
-        String result = "0";
+        String result;
         String newResult = "0";
 
         int userInput;
@@ -55,13 +55,13 @@ class Main {
                        //call pir event listener function here
                        input = runtime.exec("gpio read 2").getInputStream();
                        Scanner s = new Scanner(input).useDelimiter("\\A");
+                       result = s.hasNext() ? s.next() : "0";
 
-                       if(result.equals(newResult)){
+                       if(!result.equals(newResult)){
                            trigger.toggle(runtime);
                        }
-                       result = s.hasNext() ? s.next() : "0";
                        Thread.sleep(500);
-                       newResult = s.hasNext() ? s.next() : "0";
+                       newResult = result;
 
                    }
                }
