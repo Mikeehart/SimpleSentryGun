@@ -7,7 +7,6 @@ public class TriggerController {
     private int primerState = 0;
     private int triggerState = 0;
     private boolean isFiring = false;
-    public boolean getIsFiring(){return isFiring;}
 
     //function to switch first (primer) trigger relay
     private String togglePrimer(Runtime runtime) throws IOException {
@@ -17,7 +16,7 @@ public class TriggerController {
         runtime.exec("gpio write 4 " + primerState);
 
         if(primerState == 1)
-            return "sentry armed... ready to fire";
+            return "sentry arming...";
         else{
             return "sentry disarmed";
         }
@@ -41,7 +40,7 @@ public class TriggerController {
     //Because the sentry gun has a primer trigger that MUST be activated prior
     //to activating the firing trigger, and released in the reverse order,
     //the toggle trigger functions will only be called here in a controlled order.
-    public int fire(Runtime runtime) throws IOException, InterruptedException {
+    private int fire(Runtime runtime) throws IOException, InterruptedException {
 
         System.out.println(togglePrimer(runtime));
         Thread.sleep(2000);
@@ -50,7 +49,7 @@ public class TriggerController {
         return 1;
     }
 
-    public int ceaseFire(Runtime runtime) throws IOException, InterruptedException {
+    private int ceaseFire(Runtime runtime) throws IOException, InterruptedException {
 
         System.out.println(toggleTrigger(runtime));
         Thread.sleep(1000);

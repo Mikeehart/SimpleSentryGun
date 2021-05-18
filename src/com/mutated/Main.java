@@ -59,8 +59,10 @@ class Main {
                        result = s.hasNext() ? s.next() : "0";
 
                        if(!newResult.equals(result)){
-                           if(sensorTripCounter > 0)
-                           trigger.toggle(runtime);
+                           if(sensorTripCounter > 0){
+                               System.out.println("Target acquired");
+                               trigger.toggle(runtime);
+                           }
 
                            ++sensorTripCounter;
                        }
