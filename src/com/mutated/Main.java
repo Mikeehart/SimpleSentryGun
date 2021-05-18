@@ -15,7 +15,7 @@ class Main {
         Scanner scanner = new Scanner(System.in);
         InputStream input;
         String result;
-        String newResult = "0";
+        String newResult = "1";
 
         int userInput;
 
