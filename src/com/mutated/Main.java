@@ -14,7 +14,7 @@ class Main {
 
         Scanner scanner = new Scanner(System.in);
         InputStream input;
-        String result = "0";
+        String result;
         String newResult = "0";
 
         int userInput;
@@ -24,6 +24,7 @@ class Main {
             runtime.exec("gpio mode 4 out");
             runtime.exec("gpio mode 1 out");
             runtime.exec("gpio mode 2 in");
+            runtime.exec("gpio mode 2 down");
 
 
            do {
