@@ -14,6 +14,7 @@ class Main {
 
         Scanner scanner = new Scanner(System.in);
         InputStream input;
+        int toggleCounter = 0;
         String result = "0";
         String newResult = "0";
 
@@ -51,14 +52,16 @@ class Main {
                    System.out.println("Enter ctrl-c to quit");
                    input = runtime.exec("gpio read 2").getInputStream();
                    Scanner s = new Scanner(input).useDelimiter("\\A");
-                   trigger.toggle(runtime);
 
                    while (true){
 
                        //call pir event listener function here
 
                        if(!newResult.equals(result)){
+                           if(toggleCounter > 0)
                            trigger.toggle(runtime);
+
+                           ++toggleCounter;
                        }
                        result = s.hasNext() ? s.next() : "0";
                        Thread.sleep(500);
