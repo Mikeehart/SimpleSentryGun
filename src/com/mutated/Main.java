@@ -14,7 +14,7 @@ class Main {
 
         Scanner scanner = new Scanner(System.in);
         InputStream input;
-        String result;
+        String result = "0";
         String newResult = "0";
 
         int userInput;
@@ -49,19 +49,19 @@ class Main {
                else if(userInput == 2) {
                    System.out.println("SENTRY MODE");
                    System.out.println("Enter ctrl-c to quit");
+                   input = runtime.exec("gpio read 2").getInputStream();
+                   Scanner s = new Scanner(input).useDelimiter("\\A");
 
                    while (true){
 
                        //call pir event listener function here
-                       input = runtime.exec("gpio read 2").getInputStream();
-                       Scanner s = new Scanner(input).useDelimiter("\\A");
-                       result = s.hasNext() ? s.next() : "0";
 
                        if(!result.equals(newResult)){
                            trigger.toggle(runtime);
                        }
+                       result = s.hasNext() ? s.next() : "0";
                        Thread.sleep(500);
-                       newResult = result;
+                       newResult = s.hasNext() ? s.next() : "0";
 
                    }
                }
