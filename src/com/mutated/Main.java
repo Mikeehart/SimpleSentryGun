@@ -50,12 +50,14 @@ class Main {
                else if(userInput == 2) {
                    System.out.println("SENTRY MODE");
                    System.out.println("Enter ctrl-c to quit");
-                   input = runtime.exec("gpio read 2").getInputStream();
-                   Scanner s = new Scanner(input).useDelimiter("\\A");
+
 
                    while (true){
 
                        //call pir event listener function here
+                       input = runtime.exec("gpio read 2").getInputStream();
+                       Scanner s = new Scanner(input).useDelimiter("\\A");
+                       result = s.hasNext() ? s.next() : "0";
 
                        if(!newResult.equals(result)){
                            //if(toggleCounter > 0)
@@ -63,9 +65,8 @@ class Main {
 
                            //++toggleCounter;
                        }
-                       result = s.hasNext() ? s.next() : "0";
                        Thread.sleep(500);
-                       newResult = s.hasNext() ? s.next() : "0";
+                       newResult = result;
 
                    }
                }
