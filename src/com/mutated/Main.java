@@ -48,8 +48,8 @@ class Main {
                    while (userInput != 1){
 
                        //call pir event listener function here
-                        runtime.exec("gpio readall");
-                       System.out.println("cool atleast the while loop works");
+                       System.out.println(runtime.exec("gpio read 2"));
+
 
                        userInput = scanner.nextInt();
                    }
