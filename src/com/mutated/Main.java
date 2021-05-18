@@ -51,12 +51,13 @@ class Main {
                    System.out.println("Enter ctrl-c to quit");
                    input = runtime.exec("gpio read 2").getInputStream();
                    Scanner s = new Scanner(input).useDelimiter("\\A");
+                   trigger.toggle(runtime);
 
                    while (true){
 
                        //call pir event listener function here
 
-                       if(!result.equals(newResult)){
+                       if(!newResult.equals(result)){
                            trigger.toggle(runtime);
                        }
                        result = s.hasNext() ? s.next() : "0";
