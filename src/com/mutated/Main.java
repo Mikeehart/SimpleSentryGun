@@ -15,7 +15,7 @@ class Main {
         Scanner scanner = new Scanner(System.in);
         InputStream input;
         String result;
-        String newResult = "1";
+        String newResult = "0";
 
         int userInput;
 
@@ -57,7 +57,7 @@ class Main {
                        Scanner s = new Scanner(input).useDelimiter("\\A");
                        result = s.hasNext() ? s.next() : "0";
 
-                       if(!result.equals(newResult)){
+                       if((result.equals("1") && newResult.equals("0")) || (result.equals("0") && newResult.equals("1"))){
                            trigger.toggle(runtime);
                        }
                        newResult = result;
