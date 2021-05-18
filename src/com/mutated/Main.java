@@ -2,6 +2,7 @@ package com.mutated;
 
 import com.mutated.Controller.TriggerController;
 
+import java.io.InputStream;
 import java.util.Scanner;
 
 class Main {
@@ -12,6 +13,9 @@ class Main {
         TriggerController trigger = new TriggerController();
 
         Scanner scanner = new Scanner(System.in);
+        InputStream input;
+        String result;
+
         int userInput;
 
         try {
@@ -48,7 +52,12 @@ class Main {
                    while (userInput != 1){
 
                        //call pir event listener function here
+                       input = runtime.exec("gpio read 2").getInputStream();
+                       Scanner s = new Scanner(input).useDelimiter("\\A");
+                       result = s.hasNext() ? s.next() : null;
+
                        System.out.println(runtime.exec("gpio read 2"));
+                       System.out.println("this is the result" + result);
 
 
                        userInput = scanner.nextInt();
