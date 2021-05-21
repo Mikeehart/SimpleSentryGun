@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
+//Controller class for passive infrared sensor.
 public class PirController {
 
     private int sensorTripCounter;
@@ -18,10 +19,12 @@ public class PirController {
         trigger = new TriggerController();
     }
 
-
+    //This function continuously compares the value from a GPIO input stream that receives input (1 or 0) from
+    // an infrared sensor against a previously stored value. if the values are different, the pir sensor
+    // has either been tripped, or reset after a trip. the trigger is toggled accordingly.
     public void pirSensorTrip(Runtime runtime) throws InterruptedException, IOException {
 
-
+        //TODO: implement multithreading solution to allow user input to exit loop
         while (true) {
 
             InputStream input = runtime.exec("gpio read 2").getInputStream();
