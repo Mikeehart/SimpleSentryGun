@@ -27,15 +27,13 @@ class Main {
            do {
                System.out.println("Enter 1 for manual mode");
                System.out.println("Enter 2 for sentry mode");
-               System.out.println("Enter 3 to quit");
-               System.out.println("\n");
+               System.out.println("Enter 3 to quit \n");
                userInput = scanner.nextInt();
 
                if (userInput == 1) {
                    System.out.println("MANUAL MODE");
                    System.out.println("Enter 1 to toggle trigger on/off");
-                   System.out.println("Enter 2 for main menu");
-                   System.out.println("\n");
+                   System.out.println("Enter 2 for main menu \n");
                    userInput = scanner.nextInt();
 
                    while (userInput != 2) {
@@ -47,8 +45,7 @@ class Main {
                }
                else if(userInput == 2) {
                    System.out.println("SENTRY MODE");
-                   System.out.println("Press ctrl-c to quit");
-                   System.out.println("\n");
+                   System.out.println("Press ctrl-c to quit \n");
                    System.out.println("Searching for target...");
                    pir.pirSensorTrip(runtime);
                }
