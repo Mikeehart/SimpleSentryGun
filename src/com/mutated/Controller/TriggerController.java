@@ -4,9 +4,15 @@ import java.io.IOException;
 
 public class TriggerController {
 
-    private int primerState = 0;
-    private int triggerState = 0;
-    private boolean isFiring = false;
+    private int primerState;
+    private int triggerState;
+    private boolean isFiring;
+
+    public TriggerController() {
+        primerState = 0;
+        triggerState = 0;
+        isFiring = false;
+    }
 
     //function to switch first (primer) trigger relay
     private String togglePrimer(Runtime runtime) throws IOException {

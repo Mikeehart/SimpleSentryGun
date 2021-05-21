@@ -15,9 +15,8 @@ class Main {
         Scanner scanner = new Scanner(System.in);
         InputStream input;
         int sensorTripCounter = 0;
-        String result = "0";
+        String result;
         String newResult = "0";
-
         int userInput;
 
         try {
