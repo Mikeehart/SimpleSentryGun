@@ -1,8 +1,8 @@
 package com.mutated;
 
+import com.mutated.Controller.PirController;
 import com.mutated.Controller.TriggerController;
 
-import java.io.InputStream;
 import java.util.Scanner;
 
 class Main {
@@ -11,12 +11,9 @@ class Main {
         System.out.println("Sentry online");
         Runtime runtime = Runtime.getRuntime();
         TriggerController trigger = new TriggerController();
+        PirController pir = new PirController();
 
         Scanner scanner = new Scanner(System.in);
-        InputStream input;
-        int sensorTripCounter = 0;
-        String result;
-        String newResult = "0";
         int userInput;
 
         try {
@@ -49,26 +46,7 @@ class Main {
                else if(userInput == 2) {
                    System.out.println("SENTRY MODE");
                    System.out.println("Press ctrl-c to quit");
-
-                   while (true){
-
-                       //call pir event listener function here
-                       input = runtime.exec("gpio read 2").getInputStream();
-                       Scanner s = new Scanner(input).useDelimiter("\\A");
-                       result = s.hasNext() ? s.next() : "0";
-
-                       if(!newResult.equals(result)){
-                           if(sensorTripCounter > 0){
-                               System.out.println("Target acquired");
-                               trigger.toggle(runtime);
-                           }
-
-                           ++sensorTripCounter;
-                       }
-                       Thread.sleep(500);
-                       newResult = result;
-
-                   }
+                   pir.pirSensorTrip(runtime);
                }
            }
            while(userInput != 3);
