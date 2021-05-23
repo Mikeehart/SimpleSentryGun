@@ -32,8 +32,8 @@ public class PirController {
             result = s.hasNext() ? s.next() : "0";
 
             if (!newResult.equals(result)) {
-                if (sensorTripCounter > 0) {
-                    if (sensorTripCounter % 2 != 0){
+                //if (sensorTripCounter > 0) {
+                    if (sensorTripCounter % 2 == 0){
                         System.out.println("Target acquired");
                         trigger.toggle(runtime);
                     }
@@ -41,7 +41,7 @@ public class PirController {
                         trigger.toggle(runtime);
                         System.out.println("Searching for target...");
                     }
-                }
+                //}
 
                 ++sensorTripCounter;
             }
